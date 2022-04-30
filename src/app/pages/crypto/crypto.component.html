@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    Lista de Criptomoedas Monitoradas
+                    <button type="button" class="btn btn-primary" (click)="createModal();" style="float: right;">
+                    Monitorar Nova Moeda
+                  </button>
+                </div>
+
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary">
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Sigla
+                            </th>
+                            <th>
+                                Alvo Superior (R$)
+                            </th>
+                            <th>
+                                Alvo Inferior (R$)
+                            </th>
+                            <th>
+                                #
+                            </th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let c of cryptos">
+                                <td>
+                                    {{c.crypto.name}}
+                                </td>
+                                <td>
+                                    {{c.crypto.id}}
+                                </td>
+                                <td>
+                                    {{c.higherTargetPrice | number }}
+                                </td>
+                                <td>
+                                    {{c.lowerTargetPrice | number }}
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-primary " (click)="editModal(c);">
+                                        Editar
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

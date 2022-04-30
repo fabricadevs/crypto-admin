@@ -1,0 +1,41 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <h1>Criptomoedas</h1>
+    </div>
+    <div class="overlay overlay-block cursor-default modal-body">
+        <ng-container *ngIf="isLoading$ | async">
+            <div class="overlay-layer bg-transparent">
+                <div class="spinner spinner-lg spinner-success"></div>
+            </div>
+        </ng-container>
+
+        <form action="#" [formGroup]="formGroup">
+            <div class="row">
+                <div class="col-md-12 pr-1">
+                    <div class="form-group">
+                        <label>Criptomoeda</label>
+                        <select type="text" class="form-control" name="cryptoId" placeholder="Preço alvo" formControlName="cryptoId">
+                            <option *ngFor="let ac of cryptos" [value]="ac.id">{{ac.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3 pr-1">
+                    <div class="form-group">
+                        <label>Preço Alvo</label>
+                        <input type="text" class="form-control" name="higherTargetPrice" placeholder="Preço alvo" formControlName="higherTargetPrice">
+                    </div>
+                </div>
+                <div class="col-md-3 pr-1">
+                    <div class="form-group">
+                        <label>Preço Minimo</label>
+                        <input type="text" class="form-control" name="lowerTargetPrice" placeholder="Preço alvo" formControlName="lowerTargetPrice">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light btn-elevate mr-2 btn-font" (click)="modal.dismiss()">Cancelar</button>
+        <button type="submit" class="btn btn-primary btn-elevate btn-font" (click)="save()">Salvar</button>
+    </div>
+</div>
